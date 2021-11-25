@@ -1,0 +1,4 @@
+main: dev.risas.StaffMode
+name: StaffMode
+version: ${project.version}
+author: Risas
