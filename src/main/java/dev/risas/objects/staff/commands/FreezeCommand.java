@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
  */
 public class FreezeCommand extends BaseCommand {
 
-    @Command(name = "freeze", aliases = {"ss"}, permission = "electronstaff.command.freeze")
+    @Command(name = "freeze", aliases = {"ss"}, permission = "staffmode.command.freeze")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();

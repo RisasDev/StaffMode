@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
  */
 public class VanishCommand extends BaseCommand {
 
-    @Command(name = "vanish", aliases = {"v"}, permission = "electronstaff.command.vanish")
+    @Command(name = "vanish", aliases = {"v"}, permission = "staffmode.command.vanish")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();

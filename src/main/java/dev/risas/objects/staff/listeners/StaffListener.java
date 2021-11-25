@@ -31,7 +31,7 @@ public class StaffListener implements Listener {
     private void onStaffJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        if (player.hasPermission("electronstaff.staff")) {
+        if (player.hasPermission("staffmode.staff")) {
             Staff staff = new Staff(player.getUniqueId());
             staff.enableStaffMode(true);
         }

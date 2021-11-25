@@ -138,7 +138,7 @@ public class Staff {
     }
 
     public static Staff getStaff(UUID uuid) {
-        if (Bukkit.getPlayer(uuid).hasPermission("electronstaff.staff")) {
+        if (Bukkit.getPlayer(uuid).hasPermission("staffmode.staff")) {
             Staff staff;
 
             if (staffs.get(uuid) == null) {

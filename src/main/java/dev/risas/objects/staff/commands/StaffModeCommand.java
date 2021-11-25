@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
  */
 public class StaffModeCommand extends BaseCommand {
 
-    @Command(name = "staffmode", aliases = {"staff", "mod"}, permission = "electronstaff.command.staffmode")
+    @Command(name = "staffmode", aliases = {"staff", "mod"}, permission = "staffmode.command.staffmode")
     @Override
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
