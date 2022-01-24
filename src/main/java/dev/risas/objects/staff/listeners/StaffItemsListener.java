@@ -35,7 +35,7 @@ public class StaffItemsListener implements Listener {
     private void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null && staff.isStaffMode()) {
+        if (staff.isStaff() && staff.isStaffMode()) {
 
             if (event.getRightClicked() instanceof Player) {
                 Player target = (Player) event.getRightClicked();
@@ -70,7 +70,7 @@ public class StaffItemsListener implements Listener {
     private void onPlayerInteract(PlayerInteractEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null && staff.isStaffMode()) {
+        if (staff.isStaff() && staff.isStaffMode()) {
 
             if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
                 ItemStack item = staff.getPlayer().getInventory().getItemInHand();
@@ -79,7 +79,7 @@ public class StaffItemsListener implements Listener {
 
                 if (StaffItems.RANDOM_TELEPORT.canUse(item)) {
                     if (PlayerUtil.getOnlinePlayers().isEmpty()) {
-                        staff.getPlayer().sendMessage(ChatUtil.translate("&cNo hay jugadores en el servidor."));
+                        staff.getPlayer().sendMessage(ChatUtil.translate("&cNo players available to teleport."));
                         return;
                     }
 
@@ -87,7 +87,7 @@ public class StaffItemsListener implements Listener {
 
                     if (randomPlayer != null) {
                         staff.getPlayer().teleport(randomPlayer);
-                        staff.getPlayer().sendMessage(ChatUtil.translate("&6Teletransportado a &e" + randomPlayer.getName() + "&6."));
+                        staff.getPlayer().sendMessage(ChatUtil.translate("&eTeleported to &f" + randomPlayer.getName() + "&e."));
                     }
                 }
                 else if (StaffItems.VANISH_ON.canUse(item)) {

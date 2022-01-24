@@ -33,7 +33,7 @@ public class FreezeChatListener implements Listener {
 
             Staff staff = freeze.getStaff();
 
-            if (staff != null) {
+            if (staff.isStaff()) {
                 staff.getPlayer().sendMessage(ChatUtil.translate("&c[Freeze Chat] &7" + freeze.getName() + ": &f" + event.getMessage()));
             }
         }

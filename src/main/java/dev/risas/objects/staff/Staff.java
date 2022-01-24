@@ -137,29 +137,11 @@ public class Staff {
         return getPlayer().getName();
     }
 
+    public boolean isStaff() {
+        return staffs.get(uuid) != null;
+    }
+
     public static Staff getStaff(UUID uuid) {
-        if (Bukkit.getPlayer(uuid).hasPermission("staffmode.staff")) {
-            Staff staff;
-
-            if (staffs.get(uuid) == null) {
-                staff = new Staff(uuid);
-                staff.enableStaffMode(true);
-            }
-            else {
-                staff = staffs.get(uuid);
-            }
-
-            return staff;
-        }
-        else {
-            if (staffs.get(uuid) != null) {
-                Staff staff = staffs.get(uuid);
-                staff.disableStaffMode(true);
-                staffs.remove(uuid);
-                return null;
-            }
-        }
-
-        return null;
+        return staffs.get(uuid);
     }
 }

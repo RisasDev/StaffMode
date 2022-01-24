@@ -41,7 +41,7 @@ public class StaffListener implements Listener {
     private void onStaffLeave(PlayerQuitEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null) {
+        if (staff.isStaff()) {
             staff.disableStaffMode(true);
             Staff.getStaffs().remove(event.getPlayer().getUniqueId());
         }
@@ -52,7 +52,7 @@ public class StaffListener implements Listener {
         if (event.getEntity() instanceof Player) {
             Staff staff = Staff.getStaff(event.getEntity().getUniqueId());
 
-            if (staff != null) {
+            if (staff.isStaff()) {
                 if (staff.isStaffMode() || staff.isVanished()) {
                     event.setCancelled(true);
                 }
@@ -65,7 +65,7 @@ public class StaffListener implements Listener {
         if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
             Staff staff = Staff.getStaff(event.getDamager().getUniqueId());
 
-            if (staff != null && staff.isStaffMode()) {
+            if (staff.isStaff() && staff.isStaffMode()) {
                 event.setCancelled(true);
             }
         }
@@ -75,7 +75,7 @@ public class StaffListener implements Listener {
     private void onStaffBreak(BlockBreakEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null && staff.isStaffMode()) {
+        if (staff.isStaff() && staff.isStaffMode()) {
             event.setCancelled(true);
         }
     }
@@ -84,7 +84,7 @@ public class StaffListener implements Listener {
     private void onStaffPlace(BlockPlaceEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null && staff.isStaffMode()) {
+        if (staff.isStaff()&& staff.isStaffMode()) {
             event.setCancelled(true);
         }
     }
@@ -94,7 +94,7 @@ public class StaffListener implements Listener {
         Player player = (Player) event.getWhoClicked();
         Staff staff = Staff.getStaff(player.getUniqueId());
 
-        if (staff != null) {
+        if (staff.isStaff()) {
             if (staff.isStaffMode()) {
                 event.setCancelled(true);
                 player.updateInventory();
@@ -106,7 +106,7 @@ public class StaffListener implements Listener {
     private void onStaffPickupItem(PlayerPickupItemEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null) {
+        if (staff.isStaff()) {
             if (staff.isStaffMode() || staff.isVanished()) {
                 event.setCancelled(true);
             }
@@ -117,7 +117,7 @@ public class StaffListener implements Listener {
     private void onStaffDropItem(PlayerDropItemEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null && staff.isStaffMode()) {
+        if (staff.isStaff() && staff.isStaffMode()) {
             event.setCancelled(true);
         }
     }
@@ -126,7 +126,7 @@ public class StaffListener implements Listener {
     private void onStaffChangeWorld(PlayerChangedWorldEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff != null && staff.isVanished()) {
+        if (staff.isStaff() && staff.isVanished()) {
             staff.enableVanish(false);
         }
     }
