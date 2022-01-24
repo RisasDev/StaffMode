@@ -1,5 +1,5 @@
 # StaffMode
-Simple StaffMode Plugin (1.7 - 1.8)
+Simple StaffMode Plugin (1.7.x - 1.18.x)
 
 #### Permissions
 ```
