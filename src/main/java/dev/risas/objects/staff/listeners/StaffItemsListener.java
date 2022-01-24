@@ -35,7 +35,7 @@ public class StaffItemsListener implements Listener {
     private void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff.isStaff() && staff.isStaffMode()) {
+        if (staff != null && staff.isStaffMode()) {
 
             if (event.getRightClicked() instanceof Player) {
                 Player target = (Player) event.getRightClicked();
@@ -70,7 +70,7 @@ public class StaffItemsListener implements Listener {
     private void onPlayerInteract(PlayerInteractEvent event) {
         Staff staff = Staff.getStaff(event.getPlayer().getUniqueId());
 
-        if (staff.isStaff() && staff.isStaffMode()) {
+        if (staff != null && staff.isStaffMode()) {
 
             if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
                 ItemStack item = staff.getPlayer().getInventory().getItemInHand();

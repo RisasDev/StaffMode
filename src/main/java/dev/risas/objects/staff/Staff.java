@@ -1,5 +1,6 @@
 package dev.risas.objects.staff;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import dev.risas.utilities.ChatUtil;
 import dev.risas.utilities.PlayerUtil;
@@ -13,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -135,10 +137,6 @@ public class Staff {
 
     public String getName() {
         return getPlayer().getName();
-    }
-
-    public boolean isStaff() {
-        return staffs.get(uuid) != null;
     }
 
     public static Staff getStaff(UUID uuid) {
